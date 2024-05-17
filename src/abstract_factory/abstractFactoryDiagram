@@ -1,0 +1,72 @@
+@startuml
+abstract Device{
+  +Device()
+  +getColor() : String
+  +getStorageCapacity() : String
+  +getBland() : String
+  +toString() : String
+}
+
+class Computer{
+  +Computer(String,int,String)
+  +getColor() : String
+  +getStorageCapacity() : String
+  +getBland() : String
+}
+
+class Tablet{
+  +Tablet(String,int,String)
+  +getColor() : String
+  +getStorageCapacity() : String
+  +getBland() : String
+}
+
+class SmartPhone{
+  +SmartPhone(String,int,String)
+  +getColor() : String
+  +getStorageCapacity() : String
+  +getBland() : String
+}
+
+class ComputerFactory{
+  -color:String
+  -storageCapacity:String
+  -brand:String
+  +ComputerFactory(String,int,String)
+  +createDevice() : Device
+}
+
+class TabletFactory{
+  -color:String
+  -storageCapacity:String
+  -brand:String
+  +TabletFactory(String,int,String)
+  +createDevice() : Device
+}
+
+class SmartPhoneFactory{
+  -color:String
+  -storageCapacity:String
+  -brand:String
+  +SmartPhoneFactory(String,int,String)
+  +createDevice() : Device
+}
+
+class DeviceFactory {
+  +DeviceFactory()
+  +getDevice(DeviceAbstractFactory) : Device
+}
+
+interface DeviceAbstractFactory{
+  createDevice() : Device
+}
+
+Device <|-- Computer
+Device <|-- Tablet
+Device <|-- SmartPhone
+
+DeviceAbstractFactory <|.. ComputerFactory
+DeviceAbstractFactory <|.. TabletFactory
+DeviceAbstractFactory <|.. SmartPhoneFactory
+
+@enduml

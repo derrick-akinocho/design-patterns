@@ -1,0 +1,61 @@
+@startuml
+
+abstract Car{
+  +String : wording
+  +Integer : price
+  +Integer : weight
+
+  +getWording()
+  +getPrice()
+  +getWeight()
+  #setWording(wording : String)
+  #setPrice(price : Integer)
+  #setWeight(weight : Integer)
+}
+
+abstract CarDecorator{
+  #Car : car
+  +getWording()
+  +getPrice()
+  +getWeight()
+}
+
+class CitroenC3{
+  +CitroenC3()
+}
+
+class MercedesClassA{
+  +MercedesClassA()
+}
+
+class RearViewCamera{
+  RearViewCamera(car : Car)
+  +getWording()
+  +getPrice()
+  +getWeight()
+}
+
+class AutomaticParking{
+   AutomaticParking(car : Car)
+  +getWording()
+  +getPrice()
+  +getWeight()
+}
+
+class DirectionalLighting{
+   DirectionalLighting(car : Car)
+  +getWording()
+  +getPrice()
+  +getWeight()
+}
+
+Car <|-- CitroenC3
+Car <|-- MercedesClassA
+Car <|-- CarDecorator
+Car <--* CarDecorator : 1 #car
+
+CarDecorator <|-- RearViewCamera
+CarDecorator <|-- AutomaticParking
+CarDecorator <|-- DirectionalLighting
+
+@enduml

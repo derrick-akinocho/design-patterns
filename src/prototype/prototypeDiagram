@@ -1,0 +1,61 @@
+@startuml
+abstract Shape{
+  -id : String
+  +type : String
+  +getType()
+  +setId()
+  +getId()
+  +duplicate()
+}
+
+class Oval{
+  +type
+  +getType()
+  +setId()
+  +getId()
+  +duplicate()
+}
+
+class Lozenge{
+  +type
+  +getType()
+  +setId()
+  +getId()
+  +duplicate()
+}
+
+class Trapeze{
+  +type
+  +getType()
+  +setId()
+  +getId()
+  +duplicate()
+}
+
+class Square{
+  +type
+  +getType()
+  +setId()
+  +getId()
+  +duplicate()
+}
+
+class ShapeCache{
+  shapes : HashMap
+  +getShape() : Shape
+  +loadCache() : void
+}
+
+class TestPrototype{
+  +main() : void
+}
+
+Shape <|-- Oval
+Shape <|-- Lozenge
+Shape <|-- Trapeze
+Shape <|-- Square
+
+Shape <-- ShapeCache : duplicates
+ShapeCache <-- TestPrototype : asks
+
+@enduml
