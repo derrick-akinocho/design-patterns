@@ -1,0 +1,43 @@
+@startuml
+
+class Server {
+  +buildBurger
+}
+
+abstract BurgerBuilder {
+  +buildBread()
+  +buildSauce()
+  +buildContent()
+}
+
+class Burger {
+  +bread : String
+  +sauce : String
+  +content : String
+}
+
+class BigMacBuilder {
+  +buildBread()
+  +buildSauce()
+  +buildContent()
+}
+
+class RoyalDeluxeBuilder {
+  +buildBread()
+  +buildSauce()
+  +buildContent()
+}
+
+class SalmonBurgerBuilder {
+  +buildBread()
+  +buildSauce()
+  +buildContent()
+}
+
+Server --> BurgerBuilder
+BurgerBuilder <|-- BigMacBuilder
+BurgerBuilder <|-- RoyalDeluxeBuilder
+BurgerBuilder <|-- SalmonBurgerBuilder
+BurgerBuilder --> Burger : 0..1 #Burger
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+
+interface Component {
+  +getWeight()
+}
+
+class Truck {
+  +getWeight()
+  +add()
+  +remove()
+  +getChild()
+}
+
+class Trailer
+class Tractor
+
+Component <|.. Tractor
+Component <|.. Trailer
+Component "*" <--o Truck
+Component <|.. Truck
+
+@enduml
